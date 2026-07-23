@@ -19,8 +19,8 @@ public class TaskApiTest {
         RestAssured.baseURI = BASE_URI;
     }
 
+    // Verify the API successfully returns the task list.
     @Test
-        // Verify the API successfully returns the task list.
     void shouldReturnTaskListSuccessfully() {
 
         Response response =
@@ -31,8 +31,8 @@ public class TaskApiTest {
         assertEquals(200, response.statusCode());
     }
 
+    // Verify tasks can be filtered by status.
     @Test
-        // Verify tasks can be filtered by status.
     void shouldFilterTasksByStatus() {
 
         Response response =
@@ -44,8 +44,8 @@ public class TaskApiTest {
         assertEquals(200, response.statusCode());
     }
 
+    // Verify tasks can be filtered by priority.
     @Test
-        // Verify tasks can be filtered by priority.
     void shouldFilterTasksByPriority() {
 
         Response response =
@@ -57,8 +57,8 @@ public class TaskApiTest {
         assertEquals(200, response.statusCode());
     }
 
+    // Verify tasks can be sorted by due date.
     @Test
-        // Verify tasks can be sorted by due date.
     void shouldSortTasksByDueDate() {
 
         Response response =
@@ -70,8 +70,8 @@ public class TaskApiTest {
         assertEquals(200, response.statusCode());
     }
 
+    // Verify the tasks are returned in priority order.
     @Test
-        // Verify the tasks are returned in priority order.
     void shouldSortTasksByPriority() {
 
         Response response =
@@ -83,8 +83,8 @@ public class TaskApiTest {
         assertEquals(200, response.statusCode());
     }
 
+    // Verify combined status and priority filters -API documentation does not confirm whether multiple filters can be combined.
     @Test
-        // Combine filters test - but behaviour is not defined in the API documentations
     void shouldFilterTasksByStatusAndPriority() {
 
         Response response =
@@ -99,28 +99,28 @@ public class TaskApiTest {
         // Behaviour should be confirmed with Product/API documentation.
     }
 
+    // Verify API behaviour when an unsupported sort field is provided.
     @Test
-        // Verify API behaviour when an unsupported sort field is provided.
     void shouldHandleInvalidSortField() {
 
-        Response response = RestAssured
-                .given()
-                .queryParam("sortBy", "title")
-                .when()
-                .get(TASKS_ENDPOINT);
+        Response response =
+                given()
+                        .queryParam("sortBy", "title")
+                        .when()
+                        .get(TASKS_ENDPOINT);
 
         // Expected behaviour (400 error or empty result) is not defined.
     }
 
+    // Verify API behaviour when an unsupported status value is provided.
     @Test
-        // Verify API behaviour when an unsupported status value is provided.
     void shouldHandleInvalidStatusFilter() {
 
-        Response response = RestAssured
-                .given()
-                .queryParam("status", "Completed")
-                .when()
-                .get(TASKS_ENDPOINT);
+        Response response =
+                given()
+                        .queryParam("status", "Completed")
+                        .when()
+                        .get(TASKS_ENDPOINT);
 
         // Expected behaviour needs clarification as valid status values are not defined in the API documentation.
     }
