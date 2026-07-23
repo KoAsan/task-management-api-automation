@@ -23,14 +23,18 @@ The automation focuses on TASK-103 (Filter and Search) and TASK-104 (Sort Tasks)
 task-management-api-testing
 │
 ├── README.md
-├── pom.xml
-│
-└── src
-    └── test
-        └── java
-            └── task.management.test
-                └── TaskApiTest.java
 
+├── pom.xml
+
+└── src
+
+    └── test
+
+        └── java
+
+            └── task.management.test
+
+                └── TaskApiTest.java
 
 ---
 
@@ -47,7 +51,9 @@ Automated scenarios:
 
 Example API requests:
 GET /tasks
+
 GET /tasks?status=Done
+
 GET /tasks?priority=High
 
 
@@ -61,7 +67,9 @@ Automated scenarios:
 
 Example API requests:
 GET /tasks?sortBy=dueDate
+
 GET /tasks?sortBy=priority
+
 
 
 ---
