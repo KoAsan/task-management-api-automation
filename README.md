@@ -21,7 +21,7 @@ The automation focuses on TASK-103 (Filter and Search) and TASK-104 (Sort Tasks)
 
 ## Project Structure
 task-management-api-testing
-│
+
 ├── README.md
 
 ├── pom.xml
@@ -50,6 +50,7 @@ Automated scenarios:
 - Verify multiple filters can be applied together
 
 Example API requests:
+
 GET /tasks
 
 GET /tasks?status=Done
@@ -66,6 +67,7 @@ Automated scenarios:
 - Verify tasks can be sorted by priority
 
 Example API requests:
+
 GET /tasks?sortBy=dueDate
 
 GET /tasks?sortBy=priority
